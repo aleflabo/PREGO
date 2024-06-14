@@ -1,0 +1,44 @@
+{
+    "user": "9031",
+    "toy": "c12d",
+    "toy_type": "ladder_truck",
+    "pos_examples": [
+        "nusar-2021_action_both_9056-c12d_9056_user_id_2021-02-22_144251",
+        "nusar-2021_action_both_9066-a16_9066_user_id_2021-02-17_152811",
+        "nusar-2021_action_both_9023-a19_9023_user_id_2021-02-03_132936",
+        "nusar-2021_action_both_9023-a19_9023_user_id_2021-02-23_133654",
+        "nusar-2021_action_both_9056-a19_9056_user_id_2021-02-22_141312",
+        "nusar-2021_action_both_9083-a19_9083_user_id_2021-02-16_111909",
+        "nusar-2021_action_both_9016-b03a_9016_user_id_2021-02-17_140509",
+        "nusar-2021_action_both_9051-b03a_9051_user_id_2021-02-22_114140"
+    ],
+    "neg_examples": [
+        "nusar-2021_action_both_9031-c12d_9031_user_id_2021-02-04_105807",
+        "nusar-2021_action_both_9072-c12d_9072_user_id_2021-02-11_114038",
+        "nusar-2021_action_both_9012-a16_9012_user_id_2021-02-01_162904",
+        "nusar-2021_action_both_9041-a16_9041_user_id_2021-02-05_095801",
+        "nusar-2021_action_both_9056-a19_9056_user_id_2021-02-09_112504",
+        "nusar-2021_action_both_9072-b03a_9072_user_id_2021-02-11_111335",
+        "nusar-2021_action_both_9032-c06f_9032_user_id_2021-02-04_114322",
+        "nusar-2021_action_both_9035-c07b_9035_user_id_2021-02-04_171214",
+        "nusar-2021_action_both_9035-c07b_9035_user_id_2021-02-18_154148",
+        "nusar-2021_action_both_9063-c07b_9063_user_id_2021-02-17_095115",
+        "nusar-2021_action_both_9082-c07b_9082_user_id_2021-02-16_133255"
+    ],
+    "procedure_label": "mistake",
+    "seq": [
+        "attach-basket-ladder",
+        "attach-ladder-ladder",
+        "attach-ladder-turntable top",
+        "attach-base-chassis"
+    ],
+    "actions_label": [
+        "correct",
+        "correct",
+        "correct",
+        "mistake"
+    ],
+    "input_str": "Input Sequence:\n 49, 170, 172\nNext Symbol:\n",
+    "output_str": " 36\n",
+    "context_str": "Input Sequence:\n 125, 107, 36, 46, 189, 172, 171, 134, 106\nNext Symbol:\n 143\n---\nInput Sequence:\n 143, 125, 125, 111, 89, 36, 34, 74\nNext Symbol:\n 172\n---\nInput Sequence:\n 143, 57, 102\nNext Symbol:\n 64\n---\nInput Sequence:\n 115, 57, 90, 102, 64\nNext Symbol:\n 143\n---\nInput Sequence:\n 143, 90, 57, 102\nNext Symbol:\n 63\n---\nInput Sequence:\n 115, 143, 57, 63, 102\nNext Symbol:\n 90\n---\nInput Sequence:\n 143, 107, 89, 125, 47, 111, 36, 172\nNext Symbol:\n 86\n---\nInput Sequence:\n 107, 89, 125, 36, 111, 172, 49\nNext Symbol:\n 143\n---\n"
+}

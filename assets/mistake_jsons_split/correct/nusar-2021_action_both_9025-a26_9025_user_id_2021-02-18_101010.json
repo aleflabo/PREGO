@@ -1,0 +1,44 @@
+{
+    "user": "9025",
+    "toy": "a26",
+    "toy_type": "car",
+    "pos_examples": [
+        "nusar-2021_action_both_9025-a26_9025_user_id_2021-02-03_152505",
+        "nusar-2021_action_both_9083-a26_9083_user_id_2021-02-16_112714",
+        "nusar-2021_action_both_9014-a23_9014_user_id_2021-02-02_142800",
+        "nusar-2021_action_both_9065-a24_9095_user_id_2021-02-17_121359"
+    ],
+    "neg_examples": [
+        "nusar-2021_action_both_9045-a23_9045_user_id_2021-02-05_165228",
+        "nusar-2021_action_both_9045-a23_9045_user_id_2021-02-19_102455",
+        "nusar-2021_action_both_9016-a24_9016_user_id_2021-02-17_135905",
+        "nusar-2021_action_both_9043-a24_9043_user_id_2021-02-05_133010",
+        "nusar-2021_action_both_9034-a31_9034_user_id_2021-02-04_152413",
+        "nusar-2021_action_both_9034-a31_9034_user_id_2021-02-23_171931",
+        "nusar-2021_action_both_9063-a31_9063_user_id_2021-02-17_091930",
+        "nusar-2021_action_both_9082-a31_9082_user_id_2021-02-16_132731",
+        "nusar-2021_action_both_9024-c11a_9024_user_id_2021-02-03_144917",
+        "nusar-2021_action_both_9024-c11a_9024_user_id_2021-02-23_153251",
+        "nusar-2021_action_both_9054-c11a_9054_user_id_2021-02-08_162610"
+    ],
+    "procedure_label": "correct",
+    "seq": [
+        "attach-bumper-chassis",
+        "attach-body-chassis",
+        "attach-body-interior",
+        "attach-body-windshield",
+        "attach-body-lid",
+        "attach-chassis-wheel"
+    ],
+    "actions_label": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+    ],
+    "input_str": "Input Sequence:\n 90, 57, 62, 76, 65\nNext Symbol:\n",
+    "output_str": " 143\n",
+    "context_str": "Input Sequence:\n 90, 57, 65, 62, 76\nNext Symbol:\n 143\n---\nInput Sequence:\n 90, 143, 57, 62, 76\nNext Symbol:\n 65\n---\nInput Sequence:\n 143, 121, 57, 68, 71, 55, 69\nNext Symbol:\n 60\n---\nInput Sequence:\n 132, 121, 125, 62, 55, 182, 130, 60, 181\nNext Symbol:\n 143\n---\n"
+}

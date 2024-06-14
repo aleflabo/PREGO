@@ -1,0 +1,346 @@
+{
+    "0": {
+        "utf-8": "\\u2744\\ufe0f",
+        "escape": "\u2744\ufe0f"
+    },
+    "1": {
+        "utf-8": "\\U0001f3da\\ufe0f",
+        "escape": "\ud83c\udfda\ufe0f"
+    },
+    "2": {
+        "utf-8": "\\U0001f6cc\\U0001f3fb",
+        "escape": "\ud83d\udecc\ud83c\udffb"
+    },
+    "3": {
+        "utf-8": "\\U0001f693",
+        "escape": "\ud83d\ude93"
+    },
+    "4": {
+        "utf-8": "\\U0001f998",
+        "escape": "\ud83e\udd98"
+    },
+    "5": {
+        "utf-8": "\\U0001f6d5",
+        "escape": "\ud83d\uded5"
+    },
+    "6": {
+        "utf-8": "\\U0001f4e1",
+        "escape": "\ud83d\udce1"
+    },
+    "7": {
+        "utf-8": "\\U0001faa4",
+        "escape": "\ud83e\udea4"
+    },
+    "8": {
+        "utf-8": "\\U0001f332",
+        "escape": "\ud83c\udf32"
+    },
+    "9": {
+        "utf-8": "\\U0001f90c\\U0001f3fd",
+        "escape": "\ud83e\udd0c\ud83c\udffd"
+    },
+    "10": {
+        "utf-8": "\\U0001f378",
+        "escape": "\ud83c\udf78"
+    },
+    "11": {
+        "utf-8": "\\U0001f31a",
+        "escape": "\ud83c\udf1a"
+    },
+    "12": {
+        "utf-8": "\\U0001f9ce\\U0001f3fc",
+        "escape": "\ud83e\uddce\ud83c\udffc"
+    },
+    "13": {
+        "utf-8": "\\U0001f349",
+        "escape": "\ud83c\udf49"
+    },
+    "14": {
+        "utf-8": "\\U0001f90f\\U0001f3ff",
+        "escape": "\ud83e\udd0f\ud83c\udfff"
+    },
+    "15": {
+        "utf-8": "\\U0001f450\\U0001f3fb",
+        "escape": "\ud83d\udc50\ud83c\udffb"
+    },
+    "16": {
+        "utf-8": "\\U0001f446\\U0001f3fc",
+        "escape": "\ud83d\udc46\ud83c\udffc"
+    },
+    "17": {
+        "utf-8": "\\U0001f61a",
+        "escape": "\ud83d\ude1a"
+    },
+    "18": {
+        "utf-8": "\\U0001f68c",
+        "escape": "\ud83d\ude8c"
+    },
+    "19": {
+        "utf-8": "\\U0001f487\\U0001f3fb",
+        "escape": "\ud83d\udc87\ud83c\udffb"
+    },
+    "20": {
+        "utf-8": "\\U0001f6f5",
+        "escape": "\ud83d\udef5"
+    },
+    "21": {
+        "utf-8": "\\U0001f32b\\ufe0f",
+        "escape": "\ud83c\udf2b\ufe0f"
+    },
+    "22": {
+        "utf-8": "\\U0001f558",
+        "escape": "\ud83d\udd58"
+    },
+    "23": {
+        "utf-8": "\\U0001f37a",
+        "escape": "\ud83c\udf7a"
+    },
+    "24": {
+        "utf-8": "\\u23ef\\ufe0f",
+        "escape": "\u23ef\ufe0f"
+    },
+    "25": {
+        "utf-8": "\\U0001f481\\U0001f3fd",
+        "escape": "\ud83d\udc81\ud83c\udffd"
+    },
+    "26": {
+        "utf-8": "\\U0001f57a\\U0001f3fd",
+        "escape": "\ud83d\udd7a\ud83c\udffd"
+    },
+    "27": {
+        "utf-8": "\\U0001f3cc\\U0001f3fc",
+        "escape": "\ud83c\udfcc\ud83c\udffc"
+    },
+    "28": {
+        "utf-8": "\\U0001f977\\U0001f3fd",
+        "escape": "\ud83e\udd77\ud83c\udffd"
+    },
+    "29": {
+        "utf-8": "\\U0001f368",
+        "escape": "\ud83c\udf68"
+    },
+    "30": {
+        "utf-8": "\\u2650",
+        "escape": "\u2650"
+    },
+    "31": {
+        "utf-8": "\\u2934\\ufe0f",
+        "escape": "\u2934\ufe0f"
+    },
+    "32": {
+        "utf-8": "\\u2651",
+        "escape": "\u2651"
+    },
+    "33": {
+        "utf-8": "\\U0001f9dd\\U0001f3ff",
+        "escape": "\ud83e\udddd\ud83c\udfff"
+    },
+    "34": {
+        "utf-8": "\\U0001f5c4\\ufe0f",
+        "escape": "\ud83d\uddc4\ufe0f"
+    },
+    "35": {
+        "utf-8": "\\U0001f449",
+        "escape": "\ud83d\udc49"
+    },
+    "36": {
+        "utf-8": "\\U0001f3cc\\U0001f3fc",
+        "escape": "\ud83c\udfcc\ud83c\udffc"
+    },
+    "37": {
+        "utf-8": "\\U0001f55c",
+        "escape": "\ud83d\udd5c"
+    },
+    "38": {
+        "utf-8": "\\U0001f576\\ufe0f",
+        "escape": "\ud83d\udd76\ufe0f"
+    },
+    "39": {
+        "utf-8": "\\U0001f9b5\\U0001f3ff",
+        "escape": "\ud83e\uddb5\ud83c\udfff"
+    },
+    "40": {
+        "utf-8": "\\U0001fa82",
+        "escape": "\ud83e\ude82"
+    },
+    "41": {
+        "utf-8": "\\U0001f358",
+        "escape": "\ud83c\udf58"
+    },
+    "42": {
+        "utf-8": "\\U0001fa96",
+        "escape": "\ud83e\ude96"
+    },
+    "43": {
+        "utf-8": "\\U0001f6ec",
+        "escape": "\ud83d\udeec"
+    },
+    "44": {
+        "utf-8": "\\U0001f646",
+        "escape": "\ud83d\ude46"
+    },
+    "45": {
+        "utf-8": "\\U0001f484",
+        "escape": "\ud83d\udc84"
+    },
+    "46": {
+        "utf-8": "\\U0001f510",
+        "escape": "\ud83d\udd10"
+    },
+    "47": {
+        "utf-8": "\\U0001f556",
+        "escape": "\ud83d\udd56"
+    },
+    "48": {
+        "utf-8": "\\U0001f38e",
+        "escape": "\ud83c\udf8e"
+    },
+    "49": {
+        "utf-8": "\\U0001f949",
+        "escape": "\ud83e\udd49"
+    },
+    "50": {
+        "utf-8": "\\U0001f574\\U0001f3fe",
+        "escape": "\ud83d\udd74\ud83c\udffe"
+    },
+    "51": {
+        "utf-8": "\\U0001f49a",
+        "escape": "\ud83d\udc9a"
+    },
+    "52": {
+        "utf-8": "\\U0001f5dc\\ufe0f",
+        "escape": "\ud83d\udddc\ufe0f"
+    },
+    "53": {
+        "utf-8": "\\U0001f466\\U0001f3fd",
+        "escape": "\ud83d\udc66\ud83c\udffd"
+    },
+    "54": {
+        "utf-8": "\\U0001f45c",
+        "escape": "\ud83d\udc5c"
+    },
+    "55": {
+        "utf-8": "\\u2697\\ufe0f",
+        "escape": "\u2697\ufe0f"
+    },
+    "56": {
+        "utf-8": "\\U0001fa9b",
+        "escape": "\ud83e\ude9b"
+    },
+    "57": {
+        "utf-8": "\\u26f3",
+        "escape": "\u26f3"
+    },
+    "58": {
+        "utf-8": "\\U0001fad3",
+        "escape": "\ud83e\uded3"
+    },
+    "59": {
+        "utf-8": "\\U0001f469",
+        "escape": "\ud83d\udc69"
+    },
+    "60": {
+        "utf-8": "\\U0001f560",
+        "escape": "\ud83d\udd60"
+    },
+    "61": {
+        "utf-8": "\\U0001f5ff",
+        "escape": "\ud83d\uddff"
+    },
+    "62": {
+        "utf-8": "\\U0001f450\\U0001f3fe",
+        "escape": "\ud83d\udc50\ud83c\udffe"
+    },
+    "63": {
+        "utf-8": "\\U0001f524",
+        "escape": "\ud83d\udd24"
+    },
+    "64": {
+        "utf-8": "\\U0001f416",
+        "escape": "\ud83d\udc16"
+    },
+    "65": {
+        "utf-8": "\\u264f",
+        "escape": "\u264f"
+    },
+    "66": {
+        "utf-8": "\\U0001f612",
+        "escape": "\ud83d\ude12"
+    },
+    "67": {
+        "utf-8": "\\U0001f341",
+        "escape": "\ud83c\udf41"
+    },
+    "68": {
+        "utf-8": "\\U0001f194",
+        "escape": "\ud83c\udd94"
+    },
+    "69": {
+        "utf-8": "\\U0001f91a\\U0001f3fb",
+        "escape": "\ud83e\udd1a\ud83c\udffb"
+    },
+    "70": {
+        "utf-8": "\\U0001f9d4\\U0001f3fc",
+        "escape": "\ud83e\uddd4\ud83c\udffc"
+    },
+    "71": {
+        "utf-8": "\\U0001f4a3",
+        "escape": "\ud83d\udca3"
+    },
+    "72": {
+        "utf-8": "\\U0001f433",
+        "escape": "\ud83d\udc33"
+    },
+    "73": {
+        "utf-8": "\\U0001f198",
+        "escape": "\ud83c\udd98"
+    },
+    "74": {
+        "utf-8": "\\U0001f0cf",
+        "escape": "\ud83c\udccf"
+    },
+    "75": {
+        "utf-8": "\\u2139\\ufe0f",
+        "escape": "\u2139\ufe0f"
+    },
+    "76": {
+        "utf-8": "\\U0001f53c",
+        "escape": "\ud83d\udd3c"
+    },
+    "77": {
+        "utf-8": "\\U0001f9f0",
+        "escape": "\ud83e\uddf0"
+    },
+    "78": {
+        "utf-8": "\\U0001f9db\\U0001f3fd",
+        "escape": "\ud83e\udddb\ud83c\udffd"
+    },
+    "79": {
+        "utf-8": "\\U0001f461",
+        "escape": "\ud83d\udc61"
+    },
+    "80": {
+        "utf-8": "\\U0001f96f",
+        "escape": "\ud83e\udd6f"
+    },
+    "81": {
+        "utf-8": "\\U0001f37d\\ufe0f",
+        "escape": "\ud83c\udf7d\ufe0f"
+    },
+    "82": {
+        "utf-8": "\\u270b\\U0001f3fc",
+        "escape": "\u270b\ud83c\udffc"
+    },
+    "83": {
+        "utf-8": "\\U0001f512",
+        "escape": "\ud83d\udd12"
+    },
+    "84": {
+        "utf-8": "\\U0001f3cc\\U0001f3ff",
+        "escape": "\ud83c\udfcc\ud83c\udfff"
+    },
+    "85": {
+        "utf-8": "\\U0001f952",
+        "escape": "\ud83e\udd52"
+    }
+}

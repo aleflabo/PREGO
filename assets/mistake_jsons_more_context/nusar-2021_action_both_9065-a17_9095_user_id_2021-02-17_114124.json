@@ -1,0 +1,35 @@
+{
+    "user": "9065",
+    "toy": "a17",
+    "toy_type": "fire_truck",
+    "pos_examples": [
+        "nusar-2021_action_both_9022-a18_9022_user_id_2021-02-03_112259",
+        "nusar-2021_action_both_9022-a18_9022_user_id_2021-02-23_104757",
+        "nusar-2021_action_both_9054-a18_9054_user_id_2021-02-08_153620",
+        "nusar-2021_action_both_9073-a18_9073_user_id_2021-02-11_140513",
+        "nusar-2021_action_both_9025-a20_9025_user_id_2021-02-03_150504",
+        "nusar-2021_action_both_9025-a20_9025_user_id_2021-02-18_095735",
+        "nusar-2021_action_both_9064-a20_9064_user_id_2021-02-22_161628",
+        "nusar-2021_action_both_9022-b03b_9022_user_id_2021-02-03_113201",
+        "nusar-2021_action_both_9022-b03b_9022_user_id_2021-02-23_105258",
+        "nusar-2021_action_both_9043-b03b_9043_user_id_2021-02-05_133926"
+    ],
+    "neg_examples": [
+        "nusar-2021_action_both_9012-a17_9012_user_id_2021-02-01_162209",
+        "nusar-2021_action_both_9041-a17_9041_user_id_2021-02-05_101033",
+        "nusar-2021_action_both_9076-a20_9076_user_id_2021-02-12_110652",
+        "nusar-2021_action_both_9066-b03b_9066_user_id_2021-02-17_153607"
+    ],
+    "procedure_label": "mistake",
+    "seq": [
+        "attach-chassis-wheel",
+        "attach-chassis-interior"
+    ],
+    "actions_label": [
+        "correct",
+        "mistake"
+    ],
+    "input_str": "Input Sequence:\n 143\nNext Symbol:\n",
+    "output_str": " 125\n",
+    "context_str": "Input Sequence:\n 143, 142, 102, 89, 154\nNext Symbol:\n 161\n---\nInput Sequence:\n 154, 142, 102, 161, 143\nNext Symbol:\n 89\n---\nInput Sequence:\n 102, 142, 143, 89, 154\nNext Symbol:\n 161\n---\nInput Sequence:\n 142, 102, 89, 143, 103\nNext Symbol:\n 161\n---\nInput Sequence:\n 124, 116, 142, 186, 125, 159, 107, 161\nNext Symbol:\n 143\n---\nInput Sequence:\n 142, 159, 107, 125, 143, 111\nNext Symbol:\n 105\n---\nInput Sequence:\n 125, 107, 143, 142, 186\nNext Symbol:\n 104\n---\nInput Sequence:\n 142, 125, 143\nNext Symbol:\n 111\n---\nInput Sequence:\n 143, 107, 125, 142, 89\nNext Symbol:\n 111\n---\nInput Sequence:\n 143, 125, 142\nNext Symbol:\n 111\n---\n"
+}

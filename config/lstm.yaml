@@ -1,0 +1,35 @@
+data:
+  path: "./mistake_labels/"
+
+train:
+  epochs: 10000
+  # ! Be careful with sequence lengths higher than 1.
+  # ! Since it is defined on batches, which may have different max sequence length,
+  # ! it could occur that the groud truth or the input are empty.
+  in_seq_len: 1
+  out_seq_len: 1
+  batch_size: 32 # 32
+  shuffle: True
+
+test:
+  in_seq_len: 1
+  out_seq_len: 1
+  batch_size: 32 # 32
+  shuffle: True
+  
+model:
+  in_dim: 67
+  h_dim: 128
+  num_layers: 2
+  batch_first: True
+
+optim:
+  learning_rate: 0.001
+
+log:
+  path: "./experiments/"
+  log_interval: 1
+  save_interval: 10 # epoch interval to save checkpoint
+  wandb:
+    project: "egoprocel"
+    entity: "pinlab-sapienza"

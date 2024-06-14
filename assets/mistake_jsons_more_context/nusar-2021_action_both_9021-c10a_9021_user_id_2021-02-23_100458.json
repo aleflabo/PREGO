@@ -1,0 +1,53 @@
+{
+    "user": "9021",
+    "toy": "c10a",
+    "toy_type": "garbage_truck",
+    "pos_examples": [
+        "nusar-2021_action_both_9072-c10a_9072_user_id_2021-02-11_112415",
+        "nusar-2021_action_both_9085-c10a_9085_user_id_2021-02-22_174720",
+        "nusar-2021_action_both_9022-a15_9022_user_id_2021-02-03_111237",
+        "nusar-2021_action_both_9022-a15_9022_user_id_2021-02-23_104138",
+        "nusar-2021_action_both_9072-a15_9072_user_id_2021-02-11_110655",
+        "nusar-2021_action_both_9012-c07c_9012_user_id_2021-02-01_164345",
+        "nusar-2021_action_both_9053-c08b_9053_user_id_2021-02-08_140757"
+    ],
+    "neg_examples": [
+        "nusar-2021_action_both_9051-c10a_9051_user_id_2021-02-22_120421",
+        "nusar-2021_action_both_9073-a10_9073_user_id_2021-02-25_150711",
+        "nusar-2021_action_both_9082-a10_9082_user_id_2021-02-16_134840",
+        "nusar-2021_action_both_9041-c07c_9041_user_id_2021-02-05_104114",
+        "nusar-2021_action_both_9034-c08b_9034_user_id_2021-02-04_161726",
+        "nusar-2021_action_both_9034-c08b_9034_user_id_2021-02-23_175357",
+        "nusar-2021_action_both_9075-c08b_9075_user_id_2021-02-12_101609"
+    ],
+    "procedure_label": "correct",
+    "seq": [
+        "attach-connector-container",
+        "attach-container-rear roof",
+        "attach-container-lid",
+        "attach-container-container",
+        "attach-chassis-interior",
+        "attach-cabin-interior",
+        "attach-chassis-container",
+        "attach-cabin-roof",
+        "attach-bumper-cabin",
+        "attach-light-roof",
+        "attach-chassis-wheel"
+    ],
+    "actions_label": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+    ],
+    "input_str": "Input Sequence:\n 145, 149, 148, 147, 125, 107, 117, 111, 89, 174\nNext Symbol:\n",
+    "output_str": " 143\n",
+    "context_str": "Input Sequence:\n 135, 143, 125, 107, 117, 111\nNext Symbol:\n 89\n---\nInput Sequence:\n 148, 147, 149, 125, 102, 117, 89, 174, 111\nNext Symbol:\n 143\n---\nInput Sequence:\n 115, 90, 143, 102\nNext Symbol:\n 117\n---\nInput Sequence:\n 115, 90, 102, 117\nNext Symbol:\n 143\n---\nInput Sequence:\n 115, 117, 143, 90\nNext Symbol:\n 102\n---\nInput Sequence:\n 143, 125, 107, 89, 117\nNext Symbol:\n 111\n---\nInput Sequence:\n 143, 125, 107, 89, 117\nNext Symbol:\n 111\n---\n"
+}

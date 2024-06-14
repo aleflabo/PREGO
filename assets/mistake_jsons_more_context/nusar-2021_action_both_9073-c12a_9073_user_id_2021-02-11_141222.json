@@ -1,0 +1,53 @@
+{
+    "user": "9073",
+    "toy": "c12a",
+    "toy_type": "crane",
+    "pos_examples": [
+        "nusar-2021_action_both_9025-c12a_9025_user_id_2021-02-18_111731",
+        "nusar-2021_action_both_9015-a08_9015_user_id_2021-02-02_155549",
+        "nusar-2021_action_both_9044-b05b_9044_user_id_2021-02-05_163057",
+        "nusar-2021_action_both_9011-b06b_9011_user_id_2021-02-01_154253",
+        "nusar-2021_action_both_9046-b06b_9046_user_id_2021-02-22_105953",
+        "nusar-2021_action_both_9071-b06b_9071_user_id_2021-02-11_100739",
+        "nusar-2021_action_both_9036-c01c_9036_user_id_2021-02-18_092539",
+        "nusar-2021_action_both_9051-c08a_9051_user_id_2021-02-22_115717",
+        "nusar-2021_action_both_9081-c08a_9081_user_id_2021-02-12_160626"
+    ],
+    "neg_examples": [
+        "nusar-2021_action_both_9051-c12a_9051_user_id_2021-02-22_121059",
+        "nusar-2021_action_both_9044-a08_9044_user_id_2021-02-05_154403",
+        "nusar-2021_action_both_9044-a08_9044_user_id_2021-02-19_083738",
+        "nusar-2021_action_both_9066-a08_9066_user_id_2021-02-17_151541",
+        "nusar-2021_action_both_9015-b05b_9015_user_id_2021-02-02_161800",
+        "nusar-2021_action_both_9044-b05b_9044_user_id_2021-02-19_091348",
+        "nusar-2021_action_both_9066-b05b_9066_user_id_2021-02-17_154153",
+        "nusar-2021_action_both_9011-c01c_9011_user_id_2021-02-01_155620",
+        "nusar-2021_action_both_9056-c01c_9056_user_id_2021-02-22_143138",
+        "nusar-2021_action_both_9085-c01c_9085_user_id_2021-02-22_175419",
+        "nusar-2021_action_both_9031-c06c_9031_user_id_2021-02-23_164844",
+        "nusar-2021_action_both_9032-c08a_9032_user_id_2021-02-25_154353",
+        "nusar-2021_action_both_9064-c08a_9064_user_id_2021-02-22_164245"
+    ],
+    "procedure_label": "mistake",
+    "seq": [
+        "attach-chassis-interior",
+        "attach-cabin-interior",
+        "attach-cabin-grill",
+        "attach-base-chassis",
+        "attach-base-turntable base",
+        "attach-cabin-roof",
+        "detach-base-turntable base"
+    ],
+    "actions_label": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "mistake"
+    ],
+    "input_str": "Input Sequence:\n 125, 107, 106, 36, 46, 111\nNext Symbol:\n",
+    "output_str": " 215\n",
+    "context_str": "Input Sequence:\n 106, 125, 125, 36, 188, 21, 12, 16, 28, 140, 174, 111, 106\nNext Symbol:\n 143\n---\nInput Sequence:\n 106, 91, 102, 118\nNext Symbol:\n 143\n---\nInput Sequence:\n 21, 16, 84, 188, 168, 166, 107, 89\nNext Symbol:\n 143\n---\nInput Sequence:\n 125, 143, 29, 21, 141\nNext Symbol:\n 107\n---\nInput Sequence:\n 21, 29, 107, 141, 125\nNext Symbol:\n 143\n---\nInput Sequence:\n 143, 125, 141, 107, 29\nNext Symbol:\n 21\n---\nInput Sequence:\n 46, 21, 16, 83, 125, 111, 107, 89, 36\nNext Symbol:\n 143\n---\nInput Sequence:\n 21, 16, 74, 84, 34, 135, 125, 107, 89, 36, 174, 111\nNext Symbol:\n 143\n---\nInput Sequence:\n 107, 89, 135, 125, 36, 34, 74, 16, 21, 12, 84, 111\nNext Symbol:\n 143\n---\n"
+}

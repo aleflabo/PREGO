@@ -1,0 +1,5 @@
+{
+    "input_str": "Input Sequence:\n \nNext Symbol:\n",
+    "output_str": " 40\n",
+    "context_str": "Input Sequence:\n 39, 37, 74\nNext Symbol:\n 43\n---\nInput Sequence:\n 43, 60, 40, 74, 43, 39, 59, 29\nNext Symbol:\n 37\n---\nInput Sequence:\n 37, 40, 74, 43, 29\nNext Symbol:\n 39\n---\nInput Sequence:\n 40, 74, 39, 43\nNext Symbol:\n 29\n---\nInput Sequence:\n 40, 74, 39, 43\nNext Symbol:\n 29\n---\nInput Sequence:\n 39, 74, 43\nNext Symbol:\n 37\n---\nInput Sequence:\n 43, 37, 39\nNext Symbol:\n 74\n---\nInput Sequence:\n 60, 18, 43, 40, 74, 43, 29, 39, 59\nNext Symbol:\n 37\n---\n"
+}

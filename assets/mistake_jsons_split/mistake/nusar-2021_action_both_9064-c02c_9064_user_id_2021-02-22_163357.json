@@ -1,0 +1,42 @@
+{
+    "user": "9064",
+    "toy": "c02c",
+    "toy_type": "roller",
+    "pos_examples": [
+        "nusar-2021_action_both_9035-c02c_9035_user_id_2021-02-04_170431",
+        "nusar-2021_action_both_9031-b01b_9031_user_id_2021-02-23_164014",
+        "nusar-2021_action_both_9033-b04d_9033_user_id_2021-02-04_135802",
+        "nusar-2021_action_both_9011-c03f_9011_user_id_2021-02-01_160239",
+        "nusar-2021_action_both_9036-c03f_9036_user_id_2021-02-18_093646",
+        "nusar-2021_action_both_9086-c04c_9086_user_id_2021-02-16_154811"
+    ],
+    "neg_examples": [
+        "nusar-2021_action_both_9035-c02c_9035_user_id_2021-02-18_153533",
+        "nusar-2021_action_both_9031-b01b_9031_user_id_2021-02-04_102950",
+        "nusar-2021_action_both_9063-b01b_9063_user_id_2021-02-17_092512",
+        "nusar-2021_action_both_9075-b01b_9075_user_id_2021-02-12_102823",
+        "nusar-2021_action_both_9033-b04d_9033_user_id_2021-02-18_141950",
+        "nusar-2021_action_both_9062-b04d_9062_user_id_2021-02-09_152854",
+        "nusar-2021_action_both_9081-b04d_9081_user_id_2021-02-12_160020",
+        "nusar-2021_action_both_9024-c04c_9024_user_id_2021-02-03_142724",
+        "nusar-2021_action_both_9024-c04c_9024_user_id_2021-02-23_151613",
+        "nusar-2021_action_both_9052-c04c_9052_user_id_2021-02-08_112641",
+        "nusar-2021_action_both_9033-c13a_9033_user_id_2021-02-18_151004",
+        "nusar-2021_action_both_9051-c13a_9051_user_id_2021-02-22_121941",
+        "nusar-2021_action_both_9056-c13a_9056_user_id_2021-02-22_145733",
+        "nusar-2021_action_both_9064-c13a_9064_user_id_2021-02-22_170304",
+        "nusar-2021_action_both_9071-c13a_9071_user_id_2021-02-11_090900",
+        "nusar-2021_action_both_9081-c13a_9081_user_id_2021-02-12_162453",
+        "nusar-2021_action_both_9086-c13a_9086_user_id_2021-02-16_152408"
+    ],
+    "procedure_label": "mistake",
+    "seq": [
+        "attach-body-chassis"
+    ],
+    "actions_label": [
+        "mistake"
+    ],
+    "input_str": "Input Sequence:\n\nNext Symbol:\n",
+    "output_str": " 57\n",
+    "context_str": "Input Sequence:\n 125, 57, 111, 143, 180\nNext Symbol:\n 133\n---\nInput Sequence:\n 10, 24, 9, 180, 25, 107, 111, 125\nNext Symbol:\n 143\n---\nInput Sequence:\n 111, 125, 7\nNext Symbol:\n 143\n---\nInput Sequence:\n 115, 143, 26, 13, 7, 57, 101\nNext Symbol:\n 99\n---\nInput Sequence:\n 57, 101, 99, 26, 13, 7\nNext Symbol:\n 143\n---\nInput Sequence:\n 143, 107, 89, 125, 111, 7\nNext Symbol:\n 180\n---\n"
+}

@@ -1,0 +1,43 @@
+{
+    "user": "9041",
+    "toy": "c13f",
+    "toy_type": "water_tanker",
+    "pos_examples": [
+        "nusar-2021_action_both_9034-c13f_9034_user_id_2021-02-23_180813",
+        "nusar-2021_action_both_9082-c13f_9082_user_id_2021-02-16_140937",
+        "nusar-2021_action_both_9024-c09b_9024_user_id_2021-02-23_152108",
+        "nusar-2021_action_both_9061-c09b_9061_user_id_2021-02-09_143132",
+        "nusar-2021_action_both_9082-c09b_9082_user_id_2021-02-16_134010"
+    ],
+    "neg_examples": [
+        "nusar-2021_action_both_9063-c13f_9063_user_id_2021-02-17_100446",
+        "nusar-2021_action_both_9012-c06d_9012_user_id_2021-02-18_121034",
+        "nusar-2021_action_both_9024-c09b_9024_user_id_2021-02-03_143716",
+        "nusar-2021_action_both_9084-c09b_9084_user_id_2021-02-25_140624",
+        "nusar-2021_action_both_9086-c09b_9086_user_id_2021-02-16_155556",
+        "nusar-2021_action_both_9015-c10c_9015_user_id_2021-02-02_165955",
+        "nusar-2021_action_both_9075-c10c_9075_user_id_2021-02-12_100519",
+        "nusar-2021_action_both_9026-c12b_9026_user_id_2021-02-03_171236",
+        "nusar-2021_action_both_9055-c12b_9055_user_id_2021-02-24_111107"
+    ],
+    "procedure_label": "correct",
+    "seq": [
+        "attach-bumper-chassis",
+        "attach-chassis-wheel",
+        "attach-chassis-step",
+        "attach-base-chassis",
+        "attach-cabin-chassis",
+        "attach-base-water tank"
+    ],
+    "actions_label": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct"
+    ],
+    "input_str": "Input Sequence:\n 90, 143, 136, 36, 102\nNext Symbol:\n",
+    "output_str": " 48\n",
+    "context_str": "Input Sequence:\n 115, 143, 136, 102, 108, 36\nNext Symbol:\n 48\n---\nInput Sequence:\n 115, 136, 90, 102, 108, 36, 143\nNext Symbol:\n 48\n---\nInput Sequence:\n 48, 191, 184, 135, 174, 143, 125, 107, 89, 36\nNext Symbol:\n 111\n---\nInput Sequence:\n 48, 191, 184, 135, 125, 107, 89, 111, 36\nNext Symbol:\n 143\n---\nInput Sequence:\n 48, 191, 184, 125, 107, 36, 174, 111, 89\nNext Symbol:\n 143\n---\n"
+}

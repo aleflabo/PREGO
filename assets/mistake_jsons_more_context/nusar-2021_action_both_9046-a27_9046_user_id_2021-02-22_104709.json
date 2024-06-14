@@ -1,0 +1,47 @@
+{
+    "user": "9046",
+    "toy": "a27",
+    "toy_type": "suv",
+    "pos_examples": [
+        "nusar-2021_action_both_9065-a28_9095_user_id_2021-02-17_122244",
+        "nusar-2021_action_both_9021-a29_9021_user_id_2021-02-03_105247",
+        "nusar-2021_action_both_9021-a29_9021_user_id_2021-02-23_094113",
+        "nusar-2021_action_both_9046-a29_9046_user_id_2021-02-22_105358",
+        "nusar-2021_action_both_9074-a29_9074_user_id_2021-02-11_154856",
+        "nusar-2021_action_both_9033-a30_9033_user_id_2021-02-18_141254",
+        "nusar-2021_action_both_9081-a30_9081_user_id_2021-02-12_155525",
+        "nusar-2021_action_both_9031-c11b_9031_user_id_2021-02-23_165714",
+        "nusar-2021_action_both_9081-c11b_9081_user_id_2021-02-12_161433"
+    ],
+    "neg_examples": [
+        "nusar-2021_action_both_9021-a27_9021_user_id_2021-02-03_103039",
+        "nusar-2021_action_both_9021-a27_9021_user_id_2021-02-23_093522",
+        "nusar-2021_action_both_9013-a28_9013_user_id_2021-02-02_134923",
+        "nusar-2021_action_both_9042-a28_9042_user_id_2021-02-05_113759",
+        "nusar-2021_action_both_9033-a30_9033_user_id_2021-02-04_132852",
+        "nusar-2021_action_both_9064-a30_9064_user_id_2021-02-22_162122",
+        "nusar-2021_action_both_9031-c11b_9031_user_id_2021-02-04_104944"
+    ],
+    "procedure_label": "mistake",
+    "seq": [
+        "attach-light-roof",
+        "attach-dashboard-interior",
+        "attach-chassis-interior",
+        "attach-back seat-chassis",
+        "attach-body-nut",
+        "attach-body-chassis",
+        "detach-body-nut"
+    ],
+    "actions_label": [
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "correct",
+        "mistake"
+    ],
+    "input_str": "Input Sequence:\n 174, 152, 125, 31, 66, 57\nNext Symbol:\n",
+    "output_str": " 226\n",
+    "context_str": "Input Sequence:\n 62, 60, 90, 143, 69\nNext Symbol:\n 143\n---\nInput Sequence:\n 152, 125, 31, 62, 58, 69\nNext Symbol:\n 143\n---\nInput Sequence:\n 152, 125, 31, 62, 58, 69\nNext Symbol:\n 143\n---\nInput Sequence:\n 152, 125, 32, 62, 58, 69\nNext Symbol:\n 143\n---\nInput Sequence:\n 125, 31, 119, 62\nNext Symbol:\n 143\n---\nInput Sequence:\n 152, 31, 125, 62, 58, 69, 66\nNext Symbol:\n 143\n---\nInput Sequence:\n 152, 125, 31, 62, 66, 58, 69\nNext Symbol:\n 143\n---\nInput Sequence:\n 62, 57, 55, 58, 69\nNext Symbol:\n 143\n---\nInput Sequence:\n 62, 55, 58, 69, 143\nNext Symbol:\n 125\n---\n"
+}
