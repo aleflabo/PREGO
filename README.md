@@ -1,6 +1,6 @@
 # PREGO
 
-The official PyTorch implementation of the IEEE/CVF Computer Vision and Pattern Recognition (CVPR) '24 paper **[PREGO: online mistake detection in PRocedural EGOcentric videos](https://arxiv.org/abs/2404.01933)**.
+The official PyTorch implementation of the IEEE/CVF Computer Vision and Pattern Recognition (CVPR) '24 paper **[PREGO: online mistake detection in PRocedural EGOcentric videos]([https://arxiv.org/abs/2404.01933](https://openaccess.thecvf.com/CVPR2024))**.
 
 Code coming soon.
 
