@@ -1,10 +1,31 @@
-# PREGO
+# PREGO: online mistake detection in PRocedural EGOcentric videos (CVPR '24)
 
-The official PyTorch implementation of the IEEE/CVF Computer Vision and Pattern Recognition (CVPR) '24 paper **[PREGO: online mistake detection in PRocedural EGOcentric videos]([https://arxiv.org/abs/2404.01933](https://openaccess.thecvf.com/CVPR2024))**.
+### [[Project Page]](https://www.pinlab.org/prego) [[Paper]](https://arxiv.org/pdf/2404.01933)
 
-Code coming soon.
+The official PyTorch implementation of the IEEE/CVF Computer Vision and Pattern Recognition (CVPR) '24 paper **PREGO: online mistake detection in PRocedural EGOcentric videos**.
 
-How to cite PREGO
+### 🚧 REPO UNDER CONSTRUCTION
+
+PREGO is the first online one-class classification model for mistake detection in procedural egocentric videos. It uses an online action recognition component to model current actions and a symbolic reasoning module to predict next actions, detecting mistakes by comparing the recognized current action with the expected future one. We evaluate this on two adapted datasets, Assembly101-O and Epic-tent-O, for online benchmarking of procedural mistake detection.
+
+![teaser_image](assets/teaser.png)
+
+## News
+
+ **[2024-06-16]** Uploaded the anticipation branch.
+
+<!-- ## Data -->
+<!-- *WIP* -->
+
+## Usage
+
+### Anticipation
+```bash
+./scripts/anticipation.sh
+```
+
+## Reference
+If you find our code or paper to be helpful, please consider citing:
 ```
 @InProceedings{Flaborea_2024_CVPR,
     author    = {Flaborea, Alessandro and di Melendugno, Guido Maria D'Amely and Plini, Leonardo and Scofano, Luca and De Matteis, Edoardo and Furnari, Antonino and Farinella, Giovanni Maria and Galasso, Fabio},
