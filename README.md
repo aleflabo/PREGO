@@ -1,6 +1,6 @@
 # PREGO: online mistake detection in PRocedural EGOcentric videos (CVPR '24)
 
-### [[Project Page]](https://www.pinlab.org/prego) [[Paper]](https://arxiv.org/pdf/2404.01933)
+### [[Project Page]](https://www.pinlab.org/prego) [[Paper]]([https://arxiv.org/pdf/2404.01933](https://openaccess.thecvf.com/content/CVPR2024/html/Flaborea_PREGO_Online_Mistake_Detection_in_PRocedural_EGOcentric_Videos_CVPR_2024_paper.html))
 
 The official PyTorch implementation of the IEEE/CVF Computer Vision and Pattern Recognition (CVPR) '24 paper **PREGO: online mistake detection in PRocedural EGOcentric videos**.
 
