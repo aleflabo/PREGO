@@ -29,13 +29,6 @@ def get_metrics(preds, gts):
         # all the actions all correct procedures except the last one
         correct = matches[:-1]
         mistake = matches[-1]
-        # # count
-        # ## correct
-        # fp += np.sum(correct)
-        # tn += np.sum(~correct)
-        # ## mistake
-        # fn += int(not mistake)
-        # tp += int(mistake)
 
         # tn: correct seen as correct
         tn += np.sum(correct)
@@ -95,14 +88,8 @@ def load_data(path: str) -> dict:
     data = json.load(open(path, "r"))
     return data
 
-
-def load_vocab(vocab_file: str) -> list:
-    vocab = np.loadtxt(vocab_file, dtype=str)
-    vocab = vocab[:, 1].tolist()
-    return vocab
-
-
 def remove_sequenceInput(prompt, toy_class):
+    # if toy_class is not None, remove the reference to the single toy class, i.e. "a21" and replace with the superclass, i.e. "dumper"
     new_prompt = ""
     start = 0
     count = 1
@@ -113,20 +100,6 @@ def remove_sequenceInput(prompt, toy_class):
         start = m.end()
     new_prompt += prompt[start:]
     return new_prompt.replace("Symbol", "Sequence")
-
-
-def add_sequenceTypeEpic(prompt):
-    new_prompt = ""
-    start = 0
-    count = 0
-    for m in re.finditer(r"Input Sequence", prompt):
-        new_prompt += prompt[start : m.start()]
-        new_prompt += f"Symbol type: tent\n"
-        new_prompt += prompt[m.start() : m.end()]
-        start = m.end()
-
-    new_prompt += prompt[start:]
-    return new_prompt  # .replace('Symbol', 'Sequence')
 
 
 def anticipation(
@@ -141,48 +114,29 @@ def anticipation(
     num_samples: int,
     clean_prediction: bool,
     type_prompt="num",
+    prompt_context="default"
 ):
     preds, gts = [], []
+    
     if type_prompt == "emoji":
+        # replacing the start of the sequence "-1" with an emoji
         prompt = prompt.replace("-1", "👉")
 
     if toy_class:
         remove_toySequence = True
+        prompt = remove_sequenceInput(prompt, toy_class)
     else:
         remove_toySequence = False
-    add_sequenceEpic = False
-
-    # start_seq = []
-    # for m in re.finditer(r'Input Sequence:\n', prompt):
-    #     start_seq.append(m.start())
-
-    # prompt_new = ''
-    # for seqq in sorted(random.sample(start_seq, 5)):
-    #     end = start_seq.index(seqq)+1
-    #     if end == len(start_seq):
-    #         end = len(prompt)
-    #     else:
-    #         end = start_seq[end]
-    #     prompt_new += prompt[seqq:end]
-    # prompt = prompt_new
-
-    if remove_toySequence:
-        prompt = remove_sequenceInput(prompt, toy_class)
-    if add_sequenceEpic:
-        prompt = add_sequenceTypeEpic(prompt)
-    # pdb.set_trace()
+    
     # iterate over the sequence
     for i in range(len(seq)):
+        prompt_builder = load_data("data/context_prompt/context_prompt.json")
+        init = prompt_builder[prompt_context]["init"]
+        
         if remove_toySequence:
-            prompt_ = f"{prompt}Sequence type: {toy_class}\n"
-        elif add_sequenceEpic:
-            prompt_ = f"{prompt}Symbol type: tent\n"
+            prompt_ = f"{prompt}{init} {toy_class}\n"
         else:
-            prompt_ = f"{prompt}Sequence type: {toy}\n" if toy else ""
-            #! these are prompts for the ablation
-            # prompt_ = f"{prompt}Context: {toy}\n" if toy else ""
-            # prompt_ = f"{prompt}Given the sequences of the following: {toy}\n"
-            # prompt_ = f"{prompt}{toy}, " if toy else ""
+            prompt_ = f"{prompt}{init} {toy}\n"
 
         if type_prompt == "emoji":
             hist, action = ["👉"] + seq[:i], seq[i]
@@ -191,32 +145,30 @@ def anticipation(
 
         # hist, action = seq[-2:-1], seq[-1] # !LS
 
-        # if len(hist) > 8:
-        #     hist = hist[-8:]
+        # initialize the history with a starting num or emoji
         if type_prompt == "emoji":
             hist = ["👉"] if len(hist) == 0 else hist
         else:
             hist = [-1] if len(hist) == 0 else hist
 
         print(f"[INFO] >>> {hist} -> {action}")
+        
+
         # Add the history
-        prompt_ += f"Input Sequence:\n {', '.join(map(str,hist))}\n"
-        #! these are prompts for the ablation
-        # prompt_ += f"Input:\n {', '.join(map(str,hist))}\n"
-        # prompt_ += f"Complete the following sequence:\n {', '.join(map(str,hist))}\n"
-        # prompt_ += f"\n {', '.join(map(str,hist))}, "
+        input_builder = prompt_builder[prompt_context]["input"]
+        prompt_ += f"{input_builder}\n {', '.join(map(str,hist))}\n"
 
         # Add the action
-        prompt_ += f"Next Symbol:\n"
-        #! these are prompts for the ablation
-        # prompt_ += f"Output:\n"
-        # prompt_ += f"Sequence is completed with:\n"
-        # prompt_ += f"\n"
+        output_builder = prompt_builder[prompt_context]["output"]
+        prompt_ += f"{output_builder}\n"
 
         # LLM
         pred = set()
         for sample in range(num_samples):
-            prompts = [prompt_]  # * num_samples
+            
+            # if needed multiple predictions for the same prompt
+            prompts = [prompt_] * num_samples
+
             # predict the next symbol with LLAMA2
             results = llm.text_completion(
                 prompts,
@@ -283,37 +235,56 @@ def main(
     clean_prediction: bool = False,
     eval_metrics: bool = True,
     dataset: str = "assembly",
+    toy_class_context: bool = False,
+    recognition_model: str = "miniROAD", # select which recognition model to use. ["OadTR", "miniROAD"]
+    prompt_context: str = "default"     # select which context prompt to use. ["default", "unreferenced", "elaborate", "no-context"]
 ):
-    # Placeholder tensor of shape BxSxD
-    toy_class_context = False
+
     if dataset == "assembly":
-        toy2class = json.load(open("assets/toy2class.json", "r"))
+        
         if toy_class_context:
+            # load the same toy_class, i.e. "a01": "excavator", as context 
+            toy2class = json.load(open("assets/toy2class.json", "r"))  
             contexts = load_data(
-                "assets/assembly_context_prompt_train.json"
-            )  #! toy class
+                "data/context_prompt/assembly_context_prompt_train.json"
+            ) 
         else:
+            # load only the same toy examples as context
             contexts = load_data(
-                "assets/ablation_supplementary/assembly_context_prompt_train_onlyToy.json"
-            )  #! toy
-        # seqs = load_data("data/assembly.json")  #! OadTR output
-        seqs = load_data(
-            "data/leo_miniroad/output_Leo/output_miniROAD_edo.json"
-        )  #! miniRoad output
+                "data/context_prompt/supplementary/assembly_context_prompt_train_onlyToy.json"
+            ) 
+        
+        if recognition_model == "OadTR":
+            # using the predictions from the OadTR recognition model
+            seqs = load_data("data/predictions/output_OadTR_Assembly101-O.json")
+        elif recognition_model == "miniROAD":
+            # using the predictions from the miniROAD recognition model
+            seqs = load_data(
+                "data/predictions/output_miniROAD_Assembly101-O.json"
+            )
+            
         if type_prompt == "alpha":
-            idx2action = pickle.load(open("assets/idx2action.pkl", "rb"))
+            # load the idx2action mapping
+            idx2action = pickle.load(open("data/idx2action.pkl", "rb"))
         elif type_prompt == "emoji":
-            idx2emoji = json.load(open("assets/idx2emoji.json", "r"))
+            # load the idx2action mapping
+            idx2emoji = json.load(open("data/idx2emoji.json", "r"))
+            
     elif dataset == "epictents":
-        contexts = load_data("assets/epictents_context_prompt_train.json")
-        toy2class = None
-        # seqs = load_data("data/epictents.json")  #! OadTR output
-        seqs = load_data(
-            "data/leo_miniroad/output_Leo/output_miniROAD_Epic-Tent-O_edo.json"
-        )  #! miniRoad output
+        
+        contexts = load_data("data/context_prompt/epictents_context_prompt_train.json")
+
+        if recognition_model == "OadTR":
+            # using the predictions from the OadTR recognition model
+            seqs = load_data("data/predictions/output_OadTR_Epic-Tent-O.json")
+        elif recognition_model == "miniROAD":
+            # using the predictions from the miniROAD recognition model
+            seqs = load_data(
+                "data/output_miniROAD_Epic-Tent-O_edo.json"
+            )
 
         if type_prompt == "emoji":
-            idx2emoji = json.load(open("assets/idx2emoji_epic.json", "r"))
+            idx2emoji = json.load(open("data/idx2emoji.json", "r"))
 
     else:
         raise ValueError(f"Dataset {dataset} not supported")
@@ -337,9 +308,9 @@ def main(
         if dataset == "assembly":
             toy = get_toy(k)
             print(f"[INFO] > {i}/{len(seqs)}: {toy}")
-            toy_class = toy2class[toy]
-
+            
             if toy_class_context:
+                toy_class = toy2class[toy]
                 prompt = contexts[toy_class][type_prompt]
             else:
                 toy_class = None
@@ -359,10 +330,11 @@ def main(
         seq = v["gt"] if use_gt else v["pred"]
 
         print(f"[INFO] >> {seq}")
-        # convert numbers to string
+        
+        # convert action numbers to string or emoji if requested
         if type_prompt == "alpha" and dataset == "assembly":
             seq = [idx2action[s] for s in seq]
-        elif type_prompt == "emoji":  # and dataset == "assembly":
+        elif type_prompt == "emoji":
             seq = [idx2emoji[str(s)]["escape"] for s in seq]
 
         pred, gt = anticipation(
@@ -377,9 +349,8 @@ def main(
             num_samples=num_samples,
             clean_prediction=clean_prediction,
             type_prompt=type_prompt,
+            prompt_context=prompt_context
         )
-
-        # pdb.set_trace()
 
         preds[k] = pred
         gts[k] = gt
@@ -388,8 +359,8 @@ def main(
 
     # save preds and gts in pickle
     model = os.path.basename(ckpt_dir).split("-")[-1]
-    save_folder = "camera_ready/{}_{:d}_{}_{:d}_{:d}_{:.2f}_{}_noContext".format(
-        model, use_gt, type_prompt, clean_prediction, num_samples, temperature, dataset
+    save_folder = "{}_{:d}_{}_{:d}_{:d}_{:.2f}_{}_{}".format(
+        model, use_gt, type_prompt, clean_prediction, num_samples, temperature, dataset, prompt_context
     )
 
     if not os.path.exists(f"results/{save_folder}"):

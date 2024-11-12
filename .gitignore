@@ -599,6 +599,8 @@ data_preprocessing.py
 anomaly_detection.ipynb
 data_test/
 modelsOadTR_encoder_only/log_dist.txt
+src/taskgraph
+src/Graph2Vid
 
 # comment all __pycache__ files
 __pycache__/

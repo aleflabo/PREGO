@@ -1,0 +1,22 @@
+{
+    "default": {
+        "init": "Sequence type:",
+        "input": "Input Sequence:",
+        "output": "Next Symbol:"
+    },
+    "unreferenced": {
+        "init": "Context:",
+        "input": "Input:",
+        "output": "Output:"
+    },
+    "elaborate": {
+        "init": "Given the sequences of the following:",
+        "input": "Complete the following sequence:",
+        "output": "Sequence is completed with:"
+    },
+    "no-context": {
+        "init": "Sequence type:",
+        "input": "",
+        "output": ""
+    }
+}
