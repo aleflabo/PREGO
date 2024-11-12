@@ -621,6 +621,5 @@ util/__pycache__/logger.cpython-38.pyc
 util/__pycache__/loss.cpython-38.pyc
 
 # Misc
-*.pkl
 *.err
 *.out
