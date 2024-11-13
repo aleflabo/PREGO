@@ -41,3 +41,14 @@ If you find our code or paper to be helpful, please consider citing:
     pages     = {18483-18492}
 }
 ```
+```
+@misc{plini2024tipregochainthoughtincontext,
+      title={TI-PREGO: Chain of Thought and In-Context Learning for Online Mistake Detection in PRocedural EGOcentric Videos}, 
+      author={Leonardo Plini and Luca Scofano and Edoardo De Matteis and Guido Maria D'Amely di Melendugno and Alessandro Flaborea and Andrea Sanchietti and Giovanni Maria Farinella and Fabio Galasso and Antonino Furnari},
+      year={2024},
+      eprint={2411.02570},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2411.02570}, 
+}
+```
