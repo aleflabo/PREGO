@@ -24,8 +24,10 @@ PREGO is the first online one-class classification model for mistake detection i
 ## Usage
 
 ### Step Recognition
+Work in progress
 
 ### Data Aggregation
+Work in progress 
 
 ### Step Anticipation
 
@@ -33,7 +35,7 @@ PREGO is the first online one-class classification model for mistake detection i
 Description of the steps needed to prepare the data for the Step Anticipation branch. 
 
 Step Recognition predictions: 
-- place the predictions (after aggregation) of the Step Recognizer in the `step_anticipation/data/predictions` folder
+- place the predictions (after aggregation) of the Step Recognizer in the `step_anticipation/data/predictions` 
 - the file should have the following structure: 
 ```
 {

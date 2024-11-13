@@ -580,7 +580,7 @@ wandb/
 # models/OadTR_encoder_only/checkpoint0004.pth
 # models/OadTR_encoder_only/log_dist.txt
 # models/en_3_decoder_5_lr_drop_1/log_dist.txt
-models/
+# models/
 wandb/
 
 # ignore all __pycache__ directories
