@@ -62,6 +62,24 @@ Context prompt:
 - `step_anticipation/data/context_prompt/assembly_context_prompt_train.json` and `step_anticipation/data/context_prompt/epictents_context_prompt_train.json` contain the context to be used for the In-context learning prompt.
 - `step_anticipation/data/context_prompt/context_prompt.json` contains the strings to fill the context prompt. 
 
+#### Parameters
+Description of the parameters that can be added to the `step_anticipation/scripts/anticipation.sh` script. 
+
+- `ckpt_dir=/path/to//llama/llama-2-7b` 
+- `tokenizer_path=/path/to/tokenizer/llama/tokenizer.model`
+- `max_seq_len=2048` Maximum sequence length for input text
+- `max_batch_size` Maximum batch size for generating sequences
+- `temperature` Temperature value for controlling randomness in generation
+- `max_gen_len` Maximum length of the generated text sequence.
+- `num_samples` How many generations per each input context
+- `use_gt` Select if gt or predictions from Step Recognizer are used as input context
+- `dataset` Select dataset to use. ['assembly', 'epictent']
+- `type_prompt` Select which type of context to be passed. ['num', 'alpha', 'emoji']
+- `toy_class_context` For the assembly dataset only. If True, the input context has all the example from the same class of toys
+- `recognition_model` If not use_gt, select which Step Recognizer predictions to use. ['miniROAD', 'OadTR']
+- `prompt_context` Select how the prompt context is structured. ['default', 'unreferenced','elaborate','no-context']
+
+
 #### Run
 ```bash
 cd step_anticipation

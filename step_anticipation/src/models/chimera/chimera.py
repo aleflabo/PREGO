@@ -270,9 +270,9 @@ def main(
             # load the idx2action mapping
             idx2emoji = json.load(open("data/idx2emoji.json", "r"))
             
-    elif dataset == "epictents":
+    elif dataset == "epictent":
         
-        contexts = load_data("data/context_prompt/epictents_context_prompt_train.json")
+        contexts = load_data("data/context_prompt/epictent_context_prompt_train.json")
 
         if recognition_model == "OadTR":
             # using the predictions from the OadTR recognition model
@@ -319,7 +319,7 @@ def main(
                 except:
                     prompt = ""
 
-        elif dataset == "epictents":
+        elif dataset == "epictent":
             toy = None
             toy_class = None
             prompt = contexts[type_prompt]
