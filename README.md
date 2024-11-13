@@ -10,11 +10,11 @@ PREGO is the first online one-class classification model for mistake detection i
 ![teaser_image](assets/teaser.png)
 
 ## News
- **[2024-11-12]** Uploaded the TSN features for Assembly101-O and Epic-tent-O[[GDrive]](https://drive.google.com/drive/u/1/folders/1gcOIEXhwysCE2o8-5C4vQnTShJ7p3CKH).
+ **[2024-11-12]** Uploaded the TSN features for Assembly101-O and Epic-tent-O [[GDrive]](https://drive.google.com/drive/u/1/folders/1gcOIEXhwysCE2o8-5C4vQnTShJ7p3CKH).
 
  **[2024-11-04]** Published the follow-up paper [[TI-PREGO]](https://arxiv.org/abs/2411.02570).
  
- **[2024-06-20]** PREGO presented at #CVPR2024.
+ **[2024-06-20]** Presented PREGO at #CVPR2024.
  
  **[2024-06-16]** Uploaded the anticipation branch.
 
@@ -23,7 +23,44 @@ PREGO is the first online one-class classification model for mistake detection i
 
 ## Usage
 
-### Anticipation
+### Step Recognition
+
+### Data Aggregation
+
+### Step Anticipation
+
+#### Data Preparation 
+Description of the steps needed to prepare the data for the Step Anticipation branch. 
+
+Step Recognition predictions: 
+- place the predictions (after aggregation) of the Step Recognizer in the `step_anticipation/data/predictions` folder
+- the file should have the following structure: 
+```
+{
+    "nusar-2021_action_both_9044-a08_9044_user_id_2021-02-05_154403": {
+        "pred": [
+            39,
+            37,
+            74,
+            39,
+            37
+        ],
+        "gt": [
+            37,
+            80,
+            39,
+            29,
+            85
+        ]
+    },
+...
+}
+```
+Context prompt:
+- `step_anticipation/data/context_prompt/assembly_context_prompt_train.json` and `step_anticipation/data/context_prompt/epictents_context_prompt_train.json` contain the context to be used for the In-context learning prompt.
+- `step_anticipation/data/context_prompt/context_prompt.json` contains the strings to fill the context prompt. 
+
+#### Run
 ```bash
 cd step_anticipation
 ./scripts/anticipation.sh
