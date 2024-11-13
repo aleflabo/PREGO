@@ -1,11 +1,36 @@
 # PREGO: online mistake detection in PRocedural EGOcentric videos (CVPR 2024)
 
-### [PREGO paper [CVPR 2024]](https://openaccess.thecvf.com/content/CVPR2024/html/Flaborea_PREGO_Online_Mistake_Detection_in_PRocedural_EGOcentric_Videos_CVPR_2024_paper.html) [TI-PREGO paper [arxiv]](https://arxiv.org/abs/2411.02570)
+```diff 
+-**[Project Page](https://www.pinlab.org/prego)**
+``` 
+|
+**[PREGO paper [CVPR 2024]](https://openaccess.thecvf.com/content/CVPR2024/html/Flaborea_PREGO_Online_Mistake_Detection_in_PRocedural_EGOcentric_Videos_CVPR_2024_paper.html)** 
+|
+**[TI-PREGO paper [arXiv]](https://arxiv.org/abs/2411.02570)**
 
-The official PyTorch implementation of the IEEE/CVF Computer Vision and Pattern Recognition (CVPR) '24 paper **PREGO: online mistake detection in PRocedural EGOcentric videos** and of the follow-up paper **TI-PREGO: Chain of Thought and In-Context Learning for Online Mistake Detection in PRocedural EGOcentric Videos**.
+
+## Index
+
+1. [Introduction](#introduction)
+2. [News](#news)
+3. [Preparation](#preparation)
+    - [Data](#data)
+    - [LLAMA](#llama)
+    - [Environment](#environment)
+4. [Usage](#usage)
+    - [Step Recognition](#step-recognition)
+    - [Data Aggregation](#data-aggregation)
+    - [Step Anticipation](#step-anticipation)
+        - [Data Preparation](#data-preparation)
+        - [Parameters](#parameters)
+        - [Run](#run)
+5. [Reference](#reference)
 
 
-PREGO is the first online one-class classification model for mistake detection in procedural egocentric videos. It uses an online action recognition component to model current actions and a symbolic reasoning module to predict next actions, detecting mistakes by comparing the recognized current action with the expected future one. We evaluate this on two adapted datasets, Assembly101-O and Epic-tent-O, for online benchmarking of procedural mistake detection.
+## Introduction
+This repo hosts the official PyTorch implementations of the *IEEE/CVF Computer Vision and Pattern Recognition (CVPR) '24* paper **PREGO: online mistake detection in PRocedural EGOcentric videos** and of the follow-up paper **TI-PREGO: Chain of Thought and In-Context Learning for Online Mistake Detection in PRocedural EGOcentric Videos**.
+
+PREGO is the first online one-class classification model for mistake detection in procedural egocentric videos. It uses an online action recognition component to model current actions and a symbolic reasoning module to predict next actions, detecting mistakes by comparing the recognized current action with the expected future one. We evaluate this on two adapted datasets, *Assembly101-O* and *Epic-tent-O*, for online benchmarking of procedural mistake detection.
 
 ![teaser_image](assets/teaser.png)
 
@@ -18,16 +43,48 @@ PREGO is the first online one-class classification model for mistake detection i
  
  **[2024-06-16]** Uploaded the anticipation branch.
 
-<!-- ## Data -->
-<!-- *WIP* -->
+## Preparation
+### Data
+```diff
+- Work in progress
+```
+
+### LLAMA
+In order to run our anticipation step with LLAMA, you have to be granted access to the models by Meta [here](https://www.llama.com/llama-downloads/).
+Place them whenever you like, just recall to update the paths whenever necessary, as in `step_anticipation/scripts/anticipation.sh`.
+
+### Environment
+You can choose between creating a `conda` or `virtualenv` environment, as you prefer 
+```bash 
+# conda
+conda create -n prego python
+conda activate prego
+
+# virtualenv
+python -m venv .venv
+source .venv/bin/activate
+```
+Then, install the requirements
+```bash
+pip install -r requirements.txt
+```
+
+```diff
+- unsloth
+```
+
 
 ## Usage
 
 ### Step Recognition
-Work in progress
+```diff
+- Work in progress
+```
 
 ### Data Aggregation
-Work in progress 
+```diff
+- Work in progress
+```
 
 ### Step Anticipation
 
@@ -37,7 +94,7 @@ Description of the steps needed to prepare the data for the Step Anticipation br
 Step Recognition predictions: 
 - place the predictions (after aggregation) of the Step Recognizer in the `step_anticipation/data/predictions` 
 - the file should have the following structure: 
-```
+```json
 {
     "nusar-2021_action_both_9044-a08_9044_user_id_2021-02-05_154403": {
         "pred": [

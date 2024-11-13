@@ -3,3 +3,6 @@ fairscale
 fire
 sentencepiece
 numpy
+git+https://github.com/meta-llama/llama.git
+# TODO unslash
+# TODO step recognition

@@ -1,10 +1,7 @@
 import json
 import os
-import pdb
 import pickle
-import random
 import re
-from ast import Tuple
 from tempfile import tempdir
 from typing import Optional
 
@@ -12,7 +9,6 @@ import fire
 import numpy as np
 from llama import Dialog, Llama
 from llama.generation import Llama
-from sentry_sdk import start_transaction
 
 
 def get_metrics(preds, gts):
@@ -88,6 +84,7 @@ def load_data(path: str) -> dict:
     data = json.load(open(path, "r"))
     return data
 
+
 def remove_sequenceInput(prompt, toy_class):
     # if toy_class is not None, remove the reference to the single toy class, i.e. "a21" and replace with the superclass, i.e. "dumper"
     new_prompt = ""
@@ -114,10 +111,10 @@ def anticipation(
     num_samples: int,
     clean_prediction: bool,
     type_prompt="num",
-    prompt_context="default"
+    prompt_context="default",
 ):
     preds, gts = [], []
-    
+
     if type_prompt == "emoji":
         # replacing the start of the sequence "-1" with an emoji
         prompt = prompt.replace("-1", "👉")
@@ -127,12 +124,12 @@ def anticipation(
         prompt = remove_sequenceInput(prompt, toy_class)
     else:
         remove_toySequence = False
-    
+
     # iterate over the sequence
     for i in range(len(seq)):
         prompt_builder = load_data("data/context_prompt/context_prompt.json")
         init = prompt_builder[prompt_context]["init"]
-        
+
         if remove_toySequence:
             prompt_ = f"{prompt}{init} {toy_class}\n"
         else:
@@ -152,7 +149,6 @@ def anticipation(
             hist = [-1] if len(hist) == 0 else hist
 
         print(f"[INFO] >>> {hist} -> {action}")
-        
 
         # Add the history
         input_builder = prompt_builder[prompt_context]["input"]
@@ -165,7 +161,7 @@ def anticipation(
         # LLM
         pred = set()
         for sample in range(num_samples):
-            
+
             # if needed multiple predictions for the same prompt
             prompts = [prompt_] * num_samples
 
@@ -236,42 +232,40 @@ def main(
     eval_metrics: bool = True,
     dataset: str = "assembly",
     toy_class_context: bool = False,
-    recognition_model: str = "miniROAD", # select which recognition model to use. ["OadTR", "miniROAD"]
-    prompt_context: str = "default"     # select which context prompt to use. ["default", "unreferenced", "elaborate", "no-context"]
+    recognition_model: str = "miniROAD",  # select which recognition model to use. ["OadTR", "miniROAD"]
+    prompt_context: str = "default",  # select which context prompt to use. ["default", "unreferenced", "elaborate", "no-context"]
 ):
 
     if dataset == "assembly":
-        
+
         if toy_class_context:
-            # load the same toy_class, i.e. "a01": "excavator", as context 
-            toy2class = json.load(open("assets/toy2class.json", "r"))  
+            # load the same toy_class, i.e. "a01": "excavator", as context
+            toy2class = json.load(open("assets/toy2class.json", "r"))
             contexts = load_data(
                 "data/context_prompt/assembly_context_prompt_train.json"
-            ) 
+            )
         else:
             # load only the same toy examples as context
             contexts = load_data(
                 "data/context_prompt/supplementary/assembly_context_prompt_train_onlyToy.json"
-            ) 
-        
+            )
+
         if recognition_model == "OadTR":
             # using the predictions from the OadTR recognition model
             seqs = load_data("data/predictions/output_OadTR_Assembly101-O.json")
         elif recognition_model == "miniROAD":
             # using the predictions from the miniROAD recognition model
-            seqs = load_data(
-                "data/predictions/output_miniROAD_Assembly101-O.json"
-            )
-            
+            seqs = load_data("data/predictions/output_miniROAD_Assembly101-O.json")
+
         if type_prompt == "alpha":
             # load the idx2action mapping
             idx2action = pickle.load(open("data/idx2action.pkl", "rb"))
         elif type_prompt == "emoji":
             # load the idx2action mapping
             idx2emoji = json.load(open("data/idx2emoji.json", "r"))
-            
+
     elif dataset == "epictent":
-        
+
         contexts = load_data("data/context_prompt/epictent_context_prompt_train.json")
 
         if recognition_model == "OadTR":
@@ -279,9 +273,7 @@ def main(
             seqs = load_data("data/predictions/output_OadTR_Epic-Tent-O.json")
         elif recognition_model == "miniROAD":
             # using the predictions from the miniROAD recognition model
-            seqs = load_data(
-                "data/output_miniROAD_Epic-Tent-O_edo.json"
-            )
+            seqs = load_data("data/output_miniROAD_Epic-Tent-O_edo.json")
 
         if type_prompt == "emoji":
             idx2emoji = json.load(open("data/idx2emoji.json", "r"))
@@ -308,7 +300,7 @@ def main(
         if dataset == "assembly":
             toy = get_toy(k)
             print(f"[INFO] > {i}/{len(seqs)}: {toy}")
-            
+
             if toy_class_context:
                 toy_class = toy2class[toy]
                 prompt = contexts[toy_class][type_prompt]
@@ -330,7 +322,7 @@ def main(
         seq = v["gt"] if use_gt else v["pred"]
 
         print(f"[INFO] >> {seq}")
-        
+
         # convert action numbers to string or emoji if requested
         if type_prompt == "alpha" and dataset == "assembly":
             seq = [idx2action[s] for s in seq]
@@ -349,7 +341,7 @@ def main(
             num_samples=num_samples,
             clean_prediction=clean_prediction,
             type_prompt=type_prompt,
-            prompt_context=prompt_context
+            prompt_context=prompt_context,
         )
 
         preds[k] = pred
@@ -360,7 +352,14 @@ def main(
     # save preds and gts in pickle
     model = os.path.basename(ckpt_dir).split("-")[-1]
     save_folder = "{}_{:d}_{}_{:d}_{:d}_{:.2f}_{}_{}".format(
-        model, use_gt, type_prompt, clean_prediction, num_samples, temperature, dataset, prompt_context
+        model,
+        use_gt,
+        type_prompt,
+        clean_prediction,
+        num_samples,
+        temperature,
+        dataset,
+        prompt_context,
     )
 
     if not os.path.exists(f"results/{save_folder}"):
