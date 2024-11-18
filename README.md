@@ -68,22 +68,30 @@ Then, install the requirements
 ```bash
 pip install -r requirements.txt
 ```
-
-```diff
-- unsloth
-```
-
+Install `unsloth` following the instructions [here](https://docs.unsloth.ai/get-started/installation/pip-install).
 
 ## Usage
 
 ### Step Recognition
-```diff
-- Work in progress
-```
+For the Step Recognition branch, you can refer to the official implementation of MiniROAD [here](https://github.com/jbistanbul/MiniROAD).
 
 ### Data Aggregation
-```diff
-- Work in progress
+The data aggregation process is handled by the `utils/aggregate.py` script. 
+This script is responsible for aggregating predictions and ground truth data, and saving the results to a JSON file.
+
+To run the data aggregation script, use the following command:
+
+```bash
+python utils/aggregate.py <input_path> <output_path>
+```
+
+- `<input_path>`: Path to the input JSON file containing the data.
+- `<output_path>`: Path to save the aggregated JSON file.
+
+### Example
+
+```bash
+python utils/aggregate.py data/input.json data/output/aggregated_data.json
 ```
 
 ### Step Anticipation
