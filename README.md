@@ -1,8 +1,4 @@
 # PREGO: online mistake detection in PRocedural EGOcentric videos (CVPR 2024)
-
-```diff 
--**[Project Page](https://www.pinlab.org/prego)**
-``` 
 |
 **[PREGO paper [CVPR 2024]](https://openaccess.thecvf.com/content/CVPR2024/html/Flaborea_PREGO_Online_Mistake_Detection_in_PRocedural_EGOcentric_Videos_CVPR_2024_paper.html)** 
 |
@@ -35,6 +31,8 @@ PREGO is the first online one-class classification model for mistake detection i
 ![teaser_image](assets/teaser.png)
 
 ## News
+ **[2024-11-12]** Uploaded the script for the prediction aggregation strategy described in [[TI-PREGO]](https://arxiv.org/abs/2411.02570).
+
  **[2024-11-12]** Uploaded the TSN features for Assembly101-O and Epic-tent-O [[GDrive]](https://drive.google.com/drive/u/1/folders/1gcOIEXhwysCE2o8-5C4vQnTShJ7p3CKH).
 
  **[2024-11-04]** Published the follow-up paper [[TI-PREGO]](https://arxiv.org/abs/2411.02570).
@@ -45,13 +43,45 @@ PREGO is the first online one-class classification model for mistake detection i
 
 ## Preparation
 ### Data
-```diff
-- Work in progress
+The TSN features of the Assembly101-O and Epic-tent-O datasets can be downloaded here: [[GDrive]](https://drive.google.com/drive/u/1/folders/1gcOIEXhwysCE2o8-5C4vQnTShJ7p3CKH).
+The folder follows as described in [MiniROAD](https://github.com/jbistanbul/MiniROAD):
+```
+PREGO
+|
+|__________ Assembly101-O
+|           |
+|           |__________ rgb_anet_resnet50
+|           |           |
+|           |           |_________nusar-2021_action_both_9011-b06b_9011_user_id_2021-02-01_154253.npy
+|           |           |_________...
+|           |__________ rgb_as_flow
+|           |           |
+|           |           |_________nusar-2021_action_both_9011-b06b_9011_user_id_2021-02-01_154253.npy
+|           |           |_________...
+|           |__________ target_perframe
+|                       |
+|                       |_________nusar-2021_action_both_9011-b06b_9011_user_id_2021-02-01_154253.npy
+|                       |_________...
+|__________ Epic-tent-O
+            |
+            |__________ rgb_anet_resnet50
+            |           |
+            |           |_________annotations_1.npy
+            |           |_________...
+            |__________ rgb_as_flow
+            |           |
+            |           |_________annotations_1.npy
+            |           |_________...
+            |__________ target_perframe
+                        |
+                        |_________annotations_1.npy
+                        |_________...
 ```
 
+
 ### LLAMA
-In order to run our anticipation step with LLAMA, you have to be granted access to the models by Meta [here](https://www.llama.com/llama-downloads/).
-Place them whenever you like, just recall to update the paths whenever necessary, as in `step_anticipation/scripts/anticipation.sh`.
+To run our anticipation step with LLAMA, you must be granted access to the models by Meta [here](https://www.llama.com/llama-downloads/).
+Place them wherever you like, and recall to update the paths whenever necessary, as in `step_anticipation/scripts/anticipation.sh`.
 
 ### Environment
 You can choose between creating a `conda` or `virtualenv` environment, as you prefer 
@@ -76,8 +106,8 @@ Install `unsloth` following the instructions [here](https://docs.unsloth.ai/get-
 For the Step Recognition branch, you can refer to the official implementation of MiniROAD [here](https://github.com/jbistanbul/MiniROAD).
 
 ### Data Aggregation
-The data aggregation process is handled by the `utils/aggregate.py` script. 
-This script is responsible for aggregating predictions and ground truth data, and saving the results to a JSON file.
+The `utils/aggregate.py` script handles the data aggregation process. 
+This script is responsible for aggregating predictions and ground truth data and saving the results to a JSON file.
 
 To run the data aggregation script, use the following command:
 
@@ -138,9 +168,9 @@ Description of the parameters that can be added to the `step_anticipation/script
 - `max_gen_len` Maximum length of the generated text sequence.
 - `num_samples` How many generations per each input context
 - `use_gt` Select if gt or predictions from Step Recognizer are used as input context
-- `dataset` Select dataset to use. ['assembly', 'epictent']
+- `dataset` Select the dataset to use. ['assembly', 'epictent']
 - `type_prompt` Select which type of context to be passed. ['num', 'alpha', 'emoji']
-- `toy_class_context` For the assembly dataset only. If True, the input context has all the example from the same class of toys
+- `toy_class_context` For the assembly dataset only. If True, the input context has all the examples from the same class of toys
 - `recognition_model` If not use_gt, select which Step Recognizer predictions to use. ['miniROAD', 'OadTR']
 - `prompt_context` Select how the prompt context is structured. ['default', 'unreferenced','elaborate','no-context']
 
