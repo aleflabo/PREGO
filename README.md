@@ -87,11 +87,11 @@ Place them wherever you like, and recall to update the paths whenever necessary,
 You can choose between creating a `conda` or `virtualenv` environment, as you prefer 
 ```bash 
 # conda
-conda create -n prego python
+conda create -n prego python=3.10
 conda activate prego
 
 # virtualenv
-python -m venv .venv
+python3.10 -m venv .venv
 source .venv/bin/activate
 ```
 Then, install the requirements
