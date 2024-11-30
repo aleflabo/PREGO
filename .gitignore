@@ -622,3 +622,10 @@ util/__pycache__/loss.cpython-38.pyc
 # Misc
 *.err
 *.out
+
+# Datasets
+Assembly101-O
+Epic-tent-O
+*log.txt
+
+.vsocde

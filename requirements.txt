@@ -3,6 +3,12 @@ fairscale
 fire
 sentencepiece
 numpy
+tensorboard
+PyYAML
+scikit-learn
+torch>=2.0.0
+torchvision 
+tqdm
 git+https://github.com/meta-llama/llama.git
 # TODO unslash
 # TODO step recognition
