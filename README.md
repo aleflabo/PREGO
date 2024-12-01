@@ -103,13 +103,25 @@ Install `unsloth` following the instructions [here](https://docs.unsloth.ai/get-
 ## Usage
 
 ### Step Recognition
-For the Step Recognition branch, you can refer to the official implementation of MiniROAD [here](https://github.com/jbistanbul/MiniROAD).
+For more detaila regarding the Step Recognition branch, you can refer to the official implementation of MiniROAD [here](https://github.com/jbistanbul/MiniROAD).
+
+To run the training on Assembly101-O for example, use the command
+```bash
+python step_recognition/main.py --config step_recognition/configs/miniroad_assembly101-O.yaml
+```
+that will save the checkpoints in the folder `step_recognition/checkpoint/miniROAD/Assembly101-O`.
+
+At this point, you can use the checkpoint for evaluation and it will save predictions frame by frame as a JSON file in the folder `output_miniROAD` using the command
+
+```bash
+python step_recognition/main.py --config step_recognition/configs/miniroad_assembly101-O.yaml --eval <checkpoint_path>
+```
 
 ### Data Aggregation
 The `utils/aggregate.py` script handles the data aggregation process. 
 This script is responsible for aggregating predictions and ground truth data and saving the results to a JSON file.
 
-To run the data aggregation script, use the following command:
+To run the data aggregation script, use the following command using as input the JSON that was created in the section Step Recognition:
 
 ```bash
 python utils/aggregate.py <input_path> <output_path>

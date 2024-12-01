@@ -5,7 +5,7 @@ from trainer.train_builder import TRAINER
 @TRAINER.register("OAD")
 def train_one_epoch(trainloader, model, criterion, optimizer, scaler, epoch, device,  writer=None, scheduler=None):
     epoch_loss = 0
-    for it, (rgb_input, flow_input, target) in enumerate(tqdm(trainloader, desc=f'Epoch:{epoch} Training', postfix=f'lr: {optimizer.param_groups[0]["lr"]:.7f}')):
+    for it, (rgb_input, flow_input, target, vid, start, end) in enumerate(tqdm(trainloader, desc=f'Epoch:{epoch} Training', postfix=f'lr: {optimizer.param_groups[0]["lr"]:.7f}')):
         rgb_input, flow_input, target = rgb_input.to(device), flow_input.to(device), target.to(device) #rgb_input.cuda(), flow_input.cuda(), target.cuda()
         model.train()
         if scaler != None:

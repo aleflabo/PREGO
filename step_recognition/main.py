@@ -43,6 +43,7 @@ if __name__ == "__main__":
     trainloader = build_data_loader(cfg, mode="train")
     model = build_model(cfg, device)
     evaluate = build_eval(cfg)
+
     if args.eval != None:
         model.load_state_dict(torch.load(args.eval))
         mAP = evaluate(
@@ -50,7 +51,7 @@ if __name__ == "__main__":
             testloader,  #! trainloader per mettere il loader di train
             # testloader
             logger,
-            device
+            device, 
         )
         logger.info(f'{cfg["task"]} result: {mAP*100:.2f} m{cfg["metric"]}')
         exit()

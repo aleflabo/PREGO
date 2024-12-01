@@ -6,14 +6,14 @@ metric: 'AP'
 optimizer: 'AdamW'
 device: 'cuda:0'
 feature_pretrained: 'kinetics'
-root_path: './data/Epic-Tent-O'
+root_path: 'Epic-tent-O'
 rgb_type: 'rgb_anet_resnet50'
 flow_type: 'flow_anet_resnet50'
 annotation_type: 'target_perframe'
-video_list_path: 'data_info/video_list.json'
-output_path: './output'
+video_list_path: 'step_recognition/data_info/video_list.json'
+output_path: 'step_recognition/checkpoint_miniROAD/Epic-tent-O'
 window_size: 128 #128 
-batch_size: 1 #! 16 #16 a train e 1 a test
+batch_size: 16 #! 16 #16 a train e 1 a test
 test_batch_size: 1 
 num_epoch: 10 
 lr: 0.0001 
