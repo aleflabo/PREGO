@@ -11,7 +11,7 @@ rgb_type: 'rgb_anet_resnet50'
 flow_type: 'flow_anet_resnet50' #'flow_nv_kinetics_bninception' #'flow_anet_resnet50'
 annotation_type: 'target_perframe'
 video_list_path: 'step_recognition/data_info/video_list.json'
-output_path: './output'
+output_path: 'step_recognition/checkpoint_miniROAD/Assembly101-O'
 window_size: 128 #128 
 batch_size: 16 #16 #16 a train e 1 a test
 test_batch_size: 1 

@@ -110,7 +110,7 @@ class THUMOSDataset(data.Dataset):
         rgb_input = torch.tensor(rgb_input.astype(np.float32))
         flow_input = torch.tensor(flow_input.astype(np.float32))
         target = torch.tensor(target.astype(np.float32))
-        return rgb_input, flow_input, target  #!  vid added by Leo
+        return rgb_input, flow_input, target , vid, start, end #!  vid added by Leo
 
     def __len__(self):
         return len(self.inputs)

@@ -8,6 +8,8 @@ import json
 from trainer.eval_builder import EVAL
 from utils import thumos_postprocessing, perframe_average_precision
 import pickle
+import numpy as np
+import os
 
 
 @EVAL.register("OAD")
@@ -20,20 +22,20 @@ class Evaluate(nn.Module):
         )
         self.metric = cfg["metric"]
         self.eval_method = perframe_average_precision
+        self.cfg = cfg
         self.all_class_names = json.load(open(cfg["video_list_path"]))[
             cfg["data_name"].split("_")[0]
         ]["class_index"]
 
     def eval(self, model, dataloader, logger, device):
         model.eval()
-        #! Added by Leo
         output = {}
         with torch.no_grad():
             pred_scores, gt_targets = [], []
             start = time.time()
-            for rgb_input, flow_input, target in tqdm(
+            for rgb_input, flow_input, target, vid, start, end in tqdm(
                 dataloader, desc="Evaluation:", leave=False
-            ):  #! add  vid, start, end added by Leo
+            ): 
                 rgb_input, flow_input, target = (
                     rgb_input.to(device),
                     flow_input.to(device),
@@ -45,18 +47,23 @@ class Evaluate(nn.Module):
                 target_batch = target.squeeze().cpu().numpy()
                 pred_scores += list(prob_val)
                 gt_targets += list(target_batch)
-                #! Added by Leo
                 #! To save the prediction scores and ground truth
-                # video_name = vid[0]
-                # pred = np.argmax(prob_val, axis=1)
-                # gt = np.argmax(target_batch, axis=1)
-                # sample = {"pred": pred, "gt": gt}
-                # output[video_name] = sample
+                if self.cfg['eval'] != None:
+                    video_name = vid[0]
+                    pred = np.argmax(prob_val, axis=1)
+                    gt = np.argmax(target_batch, axis=1)
+                    sample = {"pred": pred, "gt": gt}
+                    output[video_name] = sample
 
-            #! Added by Leo
-            # save output as pickle
-            # with open("output_Leo/output_miniROAD.pickle", "wb") as file:
-            #     pickle.dump(output, file)
+            # save output as json file
+            if self.cfg['eval'] != None:
+                os.makedirs("output_miniRoad", exist_ok=True)
+                # save as json file
+                for k, v in output.items():
+                    output[k] = {"pred": v["pred"].tolist(), "gt": v["gt"].tolist()}    
+                with open("output_miniRoad/output_miniROAD.json", "w") as file:
+                    json.dump(output, file)
+
 
             end = time.time()
             num_frames = len(gt_targets)
@@ -67,7 +74,7 @@ class Evaluate(nn.Module):
                 self.data_processing,
                 self.metric,
             )
-            time_taken = end - start
+            time_taken = (end - start).item()
             logger.info(
                 f"Processed {num_frames} frames in {time_taken:.1f} seconds ({num_frames / time_taken :.1f} FPS)"
             )
