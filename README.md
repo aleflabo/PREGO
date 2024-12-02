@@ -31,6 +31,8 @@ PREGO is the first online one-class classification model for mistake detection i
 ![teaser_image](assets/teaser.png)
 
 ## News
+ **[2024-12-01]** Uploaded the recognition branch.
+
  **[2024-11-12]** Uploaded the script for the prediction aggregation strategy described in [[TI-PREGO]](https://arxiv.org/abs/2411.02570).
 
  **[2024-11-12]** Uploaded the TSN features for Assembly101-O and Epic-tent-O [[GDrive]](https://drive.google.com/drive/u/1/folders/1gcOIEXhwysCE2o8-5C4vQnTShJ7p3CKH).
