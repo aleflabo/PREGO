@@ -1,0 +1,4 @@
+ollama
+fire
+numpy
+transformers
