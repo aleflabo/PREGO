@@ -46,6 +46,12 @@ PREGO is the first online one-class classification model for mistake detection i
 ## Preparation
 ### Data
 The TSN features of the Assembly101-O and Epic-tent-O datasets can be downloaded here: [[GDrive]](https://drive.google.com/drive/u/1/folders/1gcOIEXhwysCE2o8-5C4vQnTShJ7p3CKH).
+
+To download the data using `gdown`, run the following command:
+```bash
+gdown --folder --remaining-ok https://drive.google.com/drive/u/1/folders/1gcOIEXhwysCE2o8-5C4vQnTShJ7p3CKH
+```
+
 The folder follows the structure described in [MiniROAD](https://github.com/jbistanbul/MiniROAD):
 ```
 PREGO

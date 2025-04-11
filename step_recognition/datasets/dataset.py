@@ -1,9 +1,11 @@
-import torch
-import torch.utils.data as data
-import numpy as np
+import gc
 import json
 import os.path as osp
-import gc
+
+import ipdb
+import numpy as np
+import torch
+import torch.utils.data as data
 from datasets.dataset_builder import DATA_LAYERS
 
 FEATURE_SIZES = {
@@ -32,7 +34,9 @@ class THUMOSDataset(data.Dataset):
         self.window_size = cfg["window_size"]
         self.stride = cfg["stride"]
         data_name = cfg["data_name"]
-        self.vids = json.load(open(cfg["video_list_path"]))[data_name][ mode + "_session_set"] #[:5]  # list of video names
+        self.vids = json.load(open(cfg["video_list_path"]))[data_name][
+            mode + "_session_set"
+        ]  # [:5]  # list of video names
         self.num_classes = cfg["num_classes"]
         self.inputs = []
         self._load_features(cfg)
@@ -51,14 +55,22 @@ class THUMOSDataset(data.Dataset):
         dummy_flow = np.zeros((self.window_size - 1, FEATURE_SIZES[cfg["flow_type"]]))
         for vid in self.vids:
             try:
-                target = np.load(osp.join(self.root_path, self.annotation_type, vid + ".npy"))
+                target = np.load(
+                    osp.join(self.root_path, self.annotation_type, vid + ".npy")
+                )
                 rgb = np.load(osp.join(self.root_path, self.rgb_type, vid + ".npy"))
                 # checkpoint con rgb al posto del flow
-                if cfg['flow_type'] == 'flow_anet_resnet50': 
-                    flow = np.load(osp.join(self.root_path+'/rgb_as_flow', self.rgb_type, vid + '.npy'))
+                if cfg["flow_type"] == "flow_anet_resnet50":
+                    flow = np.load(
+                        osp.join(
+                            self.root_path + "/rgb_as_flow", self.rgb_type, vid + ".npy"
+                        )
+                    )
                     flow = np.zeros(flow.shape)
-                else: # checkpoint con flow
-                    my_string = ("assembly_optical_flow_BNInception/" + vid + "/assembling.npy")
+                else:  # checkpoint con flow
+                    my_string = (
+                        "assembly_optical_flow_BNInception/" + vid + "/assembling.npy"
+                    )
                     flow = np.load(osp.join(self.root_path, self.flow_type, my_string))
                 # # concatting dummy target at the front
                 # ! LEO  to save train data leave these lines (within the if block) with the comment
@@ -86,11 +98,18 @@ class THUMOSDataset(data.Dataset):
         # gc.collect()
         self.inputs = []
         # remove 'nusar-2021_action_both_9056-b08a_9056_user_id_2021-02-22_141934'
-        if ("nusar-2021_action_both_9056-b08a_9056_user_id_2021-02-22_141934" in self.vids):
-            self.vids.remove("nusar-2021_action_both_9056-b08a_9056_user_id_2021-02-22_141934")
+        if (
+            "nusar-2021_action_both_9056-b08a_9056_user_id_2021-02-22_141934"
+            in self.vids
+        ):
+            self.vids.remove(
+                "nusar-2021_action_both_9056-b08a_9056_user_id_2021-02-22_141934"
+            )
+        ipdb.set_trace()
         for vid in self.vids:
             target = self.target_all[vid]
             #!Leo to save train data leave these lines (within the if block) with the comment
+            ipdb.set_trace()
             if self.training:
                 seed = np.random.randint(self.stride)
                 for start, end in zip(
@@ -110,7 +129,7 @@ class THUMOSDataset(data.Dataset):
         rgb_input = torch.tensor(rgb_input.astype(np.float32))
         flow_input = torch.tensor(flow_input.astype(np.float32))
         target = torch.tensor(target.astype(np.float32))
-        return rgb_input, flow_input, target , vid, start, end #!  vid added by Leo
+        return rgb_input, flow_input, target, vid, start, end  #!  vid added by Leo
 
     def __len__(self):
         return len(self.inputs)
