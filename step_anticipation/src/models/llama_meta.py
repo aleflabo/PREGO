@@ -363,7 +363,7 @@ def main(
     )
 
     if not os.path.exists(f"results/{save_folder}"):
-        os.makedirs(f"results/{save_folder}")
+        os.makedirs(f"results/{save_folder}", exist_ok=True)
 
     if eval_metrics:
         metrics = get_metrics(preds=preds, gts=gts)
